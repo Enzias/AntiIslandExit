@@ -1,0 +1,12 @@
+name: AntiIslandExit
+version: 1.0.0
+description: Plugin empêchant un joueur de sortir d'une île.
+author: Enzias
+main: fr.enzias.antiislandexit.AntiIslandExit
+
+softdepend: [ASkyBlock]
+depend: [ASkyBlock]
+permissions:
+  islandleave.bypass:
+    description: Permet de bypass l'AntiIslandExit.
+    default: op

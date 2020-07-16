@@ -1,0 +1,9 @@
+antiislandexit:
+  enable: true #false pour désactiver la fonctionnalité
+  messages:
+    antiislandexit: #Message envoyé au joueur quand il tentera de sortir de son île.
+      enable: true
+      message: '&cVous ne pouvez pas sortir de votre île'
+    bypass-message:
+      enable: true
+      message: '&aVous avez bypass la protection des îles'
