@@ -1,5 +1,6 @@
 antiislandexit:
   enable: true #false pour désactiver la fonctionnalité
+  lastchance: true #Permet de téléporter le joueur au centre de l'ile dans le cas où les détections du plugin n'aurait pas fonctionner.
   messages:
     antiislandexit: #Message envoyé au joueur quand il tentera de sortir de son île.
       enable: true
