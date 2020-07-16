@@ -4,6 +4,6 @@ antiislandexit:
     antiislandexit: #Message envoyé au joueur quand il tentera de sortir de son île.
       enable: true
       message: '&cVous ne pouvez pas sortir de votre île'
-    bypass-message:
+    bypass-message: #Message envoyé au joueur si il a la permission de sortir d'une île.
       enable: true
       message: '&aVous avez bypass la protection des îles'
