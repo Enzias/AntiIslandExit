@@ -35,13 +35,16 @@ public class IslandLeaveEvent implements Listener {
 
             if (!player.hasPermission("islandleave.bypass")) {
                 if (rangePositiveX.containsInteger(exit.getX())) {
-                    player.teleport(new Location(player.getWorld(), exit.getX() - 1, exit.getY(), exit.getZ()));
+                    player.teleport(new Location(player.getWorld(), exit.getX() - 1, exit.getY(), exit.getZ(), player.getLocation().getYaw(), player.getLocation().getPitch()));
                 } else if (rangeNegativeX.containsInteger(exit.getX())) {
-                    player.teleport(new Location(player.getWorld(), exit.getX() + 1, exit.getY(), exit.getZ()));
+                    player.teleport(new Location(player.getWorld(), exit.getX() + 1, exit.getY(), exit.getZ(), player.getLocation().getYaw(), player.getLocation().getPitch()));
                 } else if (rangePositiveZ.containsInteger(exit.getZ())) {
-                    player.teleport(new Location(player.getWorld(), exit.getX(), exit.getY(), exit.getZ() - 1));
+                    player.teleport(new Location(player.getWorld(), exit.getX(), exit.getY(), exit.getZ() - 1, player.getLocation().getYaw(), player.getLocation().getPitch()));
                 } else if (rangeNegativeZ.containsInteger(exit.getZ())) {
-                    player.teleport(new Location(player.getWorld(), exit.getX(), exit.getY(), exit.getZ() + 1));
+                    player.teleport(new Location(player.getWorld(), exit.getX(), exit.getY(), exit.getZ() + 1, player.getLocation().getYaw(), player.getLocation().getPitch()));
+                }
+                else if(plugin.getConfig().getBoolean("antiislandexit.lastchance")){
+                    player.teleport(event.getIslandLocation());
                 }
                 if(plugin.getConfig().getBoolean("antiislandexit.messages.antiislandexit.enable")) {
                     String message = plugin.getConfig().getString("antiislandexit.messages.antiislandexit.message");
