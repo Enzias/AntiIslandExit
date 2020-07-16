@@ -25,6 +25,8 @@ public class IslandLeaveEvent implements Listener {
 
             Player player = Bukkit.getPlayer(event.getPlayer());
 
+            if (!player.hasPermission("islandleave.bypass")) {
+
             Location exit = event.getLocation();
             Location spawn = event.getIslandLocation();
 
@@ -32,8 +34,7 @@ public class IslandLeaveEvent implements Listener {
             IntRange rangeNegativeX = new IntRange(spawn.getX() - (event.getProtectionSize() / 2) + 1, spawn.getX() - (event.getProtectionSize() / 2) - 1);
             IntRange rangePositiveZ = new IntRange(spawn.getZ() + (event.getProtectionSize() / 2) + 1, spawn.getZ() + (event.getProtectionSize() / 2) - 1);
             IntRange rangeNegativeZ = new IntRange(spawn.getZ() - (event.getProtectionSize() / 2) + 1, spawn.getZ() - (event.getProtectionSize() / 2) - 1);
-
-            if (!player.hasPermission("islandleave.bypass")) {
+            
                 if (rangePositiveX.containsInteger(exit.getX())) {
                     player.teleport(new Location(player.getWorld(), exit.getX() - 1, exit.getY(), exit.getZ(), player.getLocation().getYaw(), player.getLocation().getPitch()));
                 } else if (rangeNegativeX.containsInteger(exit.getX())) {
